@@ -4,6 +4,7 @@ import javax.persistence.*;
 
 @SuppressWarnings("serial")
 @Entity
+@Table(name = "CARGOS")
 public class Cargo extends AbstractEntity<Long> {
 
 	@Column(nullable = false, unique = true, length = 60)
