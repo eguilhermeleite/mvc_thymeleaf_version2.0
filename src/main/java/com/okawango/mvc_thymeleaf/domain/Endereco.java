@@ -2,12 +2,13 @@ package com.okawango.mvc_thymeleaf.domain;
 
 import javax.persistence.*;
 
+import com.okawango.mvc_thymeleaf.domain.enums.UF;
 
 @SuppressWarnings("serial")
 @Entity
 @Table(name = "ENDERECOS")
 public class Endereco extends AbstractEntity<Long> {
-	
+
 	@Column(nullable = false)
 	public String logradouro;
 
@@ -17,12 +18,15 @@ public class Endereco extends AbstractEntity<Long> {
 	@Column(nullable = false)
 	private String cidade;
 
-
 	@Column(nullable = false, length = 9)
 	private String cep;
 
 	@Column(nullable = false, length = 5)
 	private Integer numero;
+
+	@Column(nullable = false, length = 2)
+	@Enumerated(EnumType.STRING)
+	private UF uf;
 
 	private String complemento;
 
@@ -66,6 +70,14 @@ public class Endereco extends AbstractEntity<Long> {
 		this.numero = numero;
 	}
 
+	public UF getUf() {
+		return uf;
+	}
+
+	public void setUf(UF uf) {
+		this.uf = uf;
+	}
+
 	public String getComplemento() {
 		return complemento;
 	}
@@ -73,6 +85,5 @@ public class Endereco extends AbstractEntity<Long> {
 	public void setComplemento(String complemento) {
 		this.complemento = complemento;
 	}
-	
-	
+
 }
