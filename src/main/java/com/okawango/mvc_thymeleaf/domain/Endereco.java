@@ -10,7 +10,7 @@ import com.okawango.mvc_thymeleaf.domain.enums.UF;
 public class Endereco extends AbstractEntity<Long> {
 
 	@Column(nullable = false)
-	public String logradouro;
+	private String logradouro;
 
 	@Column(nullable = false)
 	private String bairro;

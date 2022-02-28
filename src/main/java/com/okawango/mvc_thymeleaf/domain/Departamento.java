@@ -10,10 +10,10 @@ import javax.persistence.*;
 public class Departamento extends AbstractEntity<Long> {
 
 	@Column(nullable = false, unique = true, length = 60)
-	public String nome;
+	private String nome;
 	
 	@OneToMany(mappedBy = "departamento")
-	public List<Cargo> cargos;
+	private List<Cargo> cargos;
 
 	public String getNome() {
 		return nome;
