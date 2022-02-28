@@ -1,5 +1,7 @@
 package com.okawango.mvc_thymeleaf.domain;
 
+import java.util.List;
+
 import javax.persistence.*;
 
 @SuppressWarnings("serial")
@@ -8,11 +10,15 @@ import javax.persistence.*;
 public class Cargo extends AbstractEntity<Long> {
 
 	@Column(nullable = false, unique = true, length = 60)
-	public String nome;
+	private String nome;
 	
 	@ManyToOne
 	@JoinColumn(name = "id_departamento")
-	public Departamento departamento;
+	private Departamento departamento;
+	
+	@OneToMany(mappedBy = "cargo")
+	private List<Funcionario> funcionarios;
+
 
 	public String getNome() {
 		return nome;
@@ -28,6 +34,14 @@ public class Cargo extends AbstractEntity<Long> {
 
 	public void setDepartamento(Departamento departamento) {
 		this.departamento = departamento;
+	}
+	
+	public List<Funcionario> getFuncionarios() {
+		return funcionarios;
+	}
+
+	public void setFuncionarios(List<Funcionario> funcionarios) {
+		this.funcionarios = funcionarios;
 	}
 	
 	
