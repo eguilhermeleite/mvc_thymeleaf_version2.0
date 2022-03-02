@@ -5,7 +5,10 @@ import java.util.Date;
 
 import javax.persistence.*;
 
-public class Funcionario {
+@SuppressWarnings("serial")
+@Entity
+@Table(name = "FUNCIONARIOS")
+public class Funcionario extends AbstractEntity<Long>{
 
 	@Column(nullable = false, unique = true)
 	private String nome;
